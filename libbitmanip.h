@@ -27,17 +27,9 @@ namespace bitmanip
     constexpr uint16_t make(uint8_t lower, uint8_t upper) noexcept {
         return (static_cast<uint16_t>(upper) << 8) | (static_cast<uint16_t>(lower));
     }
-    constexpr uint8_t binaryPower(int8_t count) {
-        return count > 0 ? 2u * binaryPower(count - 1) : 1u;
-    }
-    constexpr uint16_t binaryPower(int16_t count) {
-        return count > 0 ? 2u * binaryPower(count - 1) : 1u;
-    }
-    constexpr uint32_t binaryPower(int32_t count) {
-        return count > 0 ? 2u * binaryPower(count - 1) : 1u;
-    }
-    constexpr uint64_t binaryPower(int64_t count) {
-        return count > 0 ? 2u * binaryPower(count - 1) : 1u;
+    template<typename T, typename R>
+    constexpr R binaryPower(T count) noexcept {
+        return count > 0 ? static_cast<R>(2u) * binaryPower<T, R>(count - 1) : static_cast<R>(1u);
     }
     template<typename R, typename T, T mask, T shift>
     constexpr R decode(T value) noexcept {
