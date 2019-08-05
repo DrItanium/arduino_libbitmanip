@@ -24,6 +24,18 @@
 #define LIB_BITMANIP_H__
 namespace bitmanip 
 {
+    constexpr uint8_t binaryPower(int8_t count) {
+        return count > 0 ? 2u * binaryPower(count - 1) : 1u;
+    }
+    constexpr uint16_t binaryPower(int16_t count) {
+        return count > 0 ? 2u * binaryPower(count - 1) : 1u;
+    }
+    constexpr uint32_t binaryPower(int32_t count) {
+        return count > 0 ? 2u * binaryPower(count - 1) : 1u;
+    }
+    constexpr uint64_t binaryPower(int64_t count) {
+        return count > 0 ? 2u * binaryPower(count - 1) : 1u;
+    }
     template<typename R, typename T, T mask, T shift>
     constexpr R decode(T value) noexcept {
         // if we had access to c++17 I could use constexpr if
