@@ -1,4 +1,4 @@
-bitmanip::encode KEYWORD2
-bitmanip::isEven KEYWORD2
-bitmanip::isOdd KEYWORD2
-bitmanip::decode KEYWORD2
+encode KEYWORD2
+isEven KEYWORD2
+isOdd KEYWORD2
+decode KEYWORD2
