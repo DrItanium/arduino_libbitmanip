@@ -31,7 +31,7 @@ namespace bitmanip
     constexpr R binaryPower(T count) noexcept {
         return count > 0 ? static_cast<R>(2u) * binaryPower<T, R>(count - 1) : static_cast<R>(1u);
     }
-    template<typename R, typename T, T mask, T shift>
+    template<typename T, typename R, T mask, T shift>
     constexpr R decode(T value) noexcept {
         // if we had access to c++17 I could use constexpr if
         return static_cast<R>((value & mask) >> shift);
